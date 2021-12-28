@@ -1,0 +1,9 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			GER = { # Trigger historical events based on nr of days from game startup
+				#news_event = { id = he_news.1 days = 2 }
+			}
+		}
+	}
+}
