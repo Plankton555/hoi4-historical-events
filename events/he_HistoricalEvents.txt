@@ -13,22 +13,27 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.3.28 } # Italians bomb Harar
+	trigger = { date > 1936.1.10 } # Trigger 2nd Italo-Ethiopian war event chain
 	immediate = {
-		# URG = { news_event = { id = he_news.1 days = 1 } }
+		URG = { news_event = { id = he_news.1 days = 1 } }
 	}
 }
 news_event = {
 	id = he_news.1
 	title = he_news.1.t
 	desc = he_news.1.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
 
 	option = {
 		name = he_news.1.a
+		set_variable = { he_show_ethiopia_war = 1 }
+	}
+	option = {
+		name = he_news.1.b
+		set_variable = { he_show_ethiopia_war = 0 }
 	}
 }
 
@@ -38,7 +43,10 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.5.1 } # Haile Selassie goes into exile
+	trigger = {
+		check_variable = { he_show_ethiopia_war = 1 }
+		date > 1936.5.1
+	} # Haile Selassie goes into exile
 	immediate = {
 		URG = { news_event = { id = he_news.3 days = 1 } }
 	}
@@ -47,7 +55,7 @@ news_event = {
 	id = he_news.3
 	title = he_news.3.t
 	desc = he_news.3.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
@@ -63,7 +71,10 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.1.19 } # Italians resume northern offensive
+	trigger = {
+		check_variable = { he_show_ethiopia_war = 1 }
+		date > 1936.1.19
+	} # Italians resume northern offensive
 	immediate = {
 		URG = { news_event = { id = he_news.5 days = 1 } }
 	}
@@ -72,7 +83,7 @@ news_event = {
 	id = he_news.5
 	title = he_news.5.t
 	desc = he_news.5.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
@@ -88,7 +99,7 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.2.10 } # Battle of Amba Aradam
+	trigger = { NOT = {has_global_flag = he_hide_ethiopia_war} date > 1936.2.10 } # Battle of Amba Aradam
 	immediate = {
 		URG = { news_event = { id = he_news.7 days = 1 } }
 	}
@@ -97,7 +108,7 @@ news_event = {
 	id = he_news.7
 	title = he_news.7.t
 	desc = he_news.7.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
@@ -113,7 +124,7 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.2.27 } # Second Battle of Tembien
+	trigger = { NOT = {has_global_flag = he_hide_ethiopia_war} date > 1936.2.27 } # Second Battle of Tembien
 	immediate = {
 		URG = { news_event = { id = he_news.9 days = 1 } }
 	}
@@ -122,7 +133,7 @@ news_event = {
 	id = he_news.9
 	title = he_news.9.t
 	desc = he_news.9.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
@@ -138,7 +149,7 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1936.4.13 } # Battle of the Ogaden
+	trigger = { NOT = {has_global_flag = he_hide_ethiopia_war} date > 1936.4.13 } # Battle of the Ogaden
 	immediate = {
 		URG = { news_event = { id = he_news.11 days = 1 } }
 	}
@@ -147,7 +158,7 @@ news_event = {
 	id = he_news.11
 	title = he_news.11.t
 	desc = he_news.11.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
@@ -163,7 +174,7 @@ news_event = { # HIDDEN
 	fire_only_once = yes
 
 	mean_time_to_happen = { days = 1 }
-	trigger = { date > 1937.2.19 } # Addis Ababa massacre
+	trigger = { NOT = {has_global_flag = he_hide_ethiopia_war} date > 1937.2.19 } # Addis Ababa massacre
 	immediate = {
 		URG = { news_event = { id = he_news.13 days = 1 } }
 	}
@@ -172,7 +183,7 @@ news_event = {
 	id = he_news.13
 	title = he_news.13.t
 	desc = he_news.13.d
-	picture = GFX_news_event_028
+	picture = GFX_he_ethiopian_war_001
 
 	major = yes
 	is_triggered_only = yes
